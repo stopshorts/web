@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday!</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Segoe UI', cursive;
+      background: linear-gradient(to top right, #ffe0e9, #fff9c4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      color: #e91e63;
+      font-size: 3em;
+      margin-bottom: 10px;
+      animation: pulse 2s infinite;
+    }
+
+    .gift {
+      width: 80px;
+      height: 80px;
+      background: #f06292;
+      border: 4px solid white;
+      border-radius: 10px;
+      position: absolute;
+      bottom: 0;
+      animation: bounce 2s infinite;
+    }
+
+    .gift::before, .gift::after {
+      content: '';
+      position: absolute;
+      background: white;
+    }
+
+    .gift::before {
+      width: 100%;
+      height: 10px;
+      top: 35px;
+      left: 0;
+    }
+
+    .gift::after {
+      width: 10px;
+      height: 100%;
+      top: 0;
+      left: 35px;
+    }
+
+    .balloon {
+      width: 40px;
+      height: 50px;
+      background-color: #ff4081;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      position: absolute;
+      bottom: -60px;
+      animation: float 10s linear infinite;
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: black;
+    }
+
+    #wish {
+      display: none;
+      font-size: 1.4em;
+      margin-top: 20px;
+      color: #6a1b9a;
+      background: white;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      font-size: 1em;
+      background-color: #8e24aa;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ab47bc;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-120vh) rotate(360deg);
+      }
+    }
+    #img{
+      border-radius: 5%;
+    }
+  </style>
+</head>
+<body>
+  
+<li ><a href ="birthday_img.html">more suprises</a></li>
+
+  <h1>🎉 Happy Birthday! 🎉</h1>
+  <h2 style="color:#e91e63"><i>😃 Bulbul 😃</i></h2>
+  <button onclick="showWish()">Click for a Surprise</button>
+  <div id="wish">🎂 Wishing you smiles, laughter, and lots of cake! 🎁🎈</div>
+
+  <!-- Gifts -->
+  <div class="gift" style="left: 30%; animation-delay: 0s;"></div>
+  <div class="gift" style="left: 60%; animation-delay: 1s;"></div>
+  <img id="img" src="WhatsApp Image 2025-06-26 at 12.46.43_3dd59516.jpg" width="150">
+  <button onclick="document.getElementById('img').src='WhatsApp Image 2025-06-26 at 12.46.43_4c7b5d13.jpg'">click here for change image</button>
+
+  <!-- Balloons -->
+  <script>
+    function createBalloons(count) {
+      for (let i = 0; i < count; i++) {
+        const balloon = document.createElement("div");
+        balloon.className = "balloon";
+        balloon.style.left = Math.random() * 100 + "vw";
+    
+        balloon.style.animationDuration = (5 + Math.random() * 5) + "s";
+        balloon.style.animationDelay = (Math.random() * 5) + "s";
+        document.body.appendChild(balloon);
+      }
+    }
+
+    function showWish() {
+      document.getElementById('wish').style.display = 'block';
+    }
+
+    createBalloons(20);
+  </script>
+
+</body>
+</html>
